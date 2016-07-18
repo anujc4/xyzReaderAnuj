@@ -24,4 +24,5 @@
     <color name="ltgray">#ffe0e0e0</color>
     <color name="app_primary">#E91E63</color>
     <color name="app_primary_pressed">#D81B60</color>
+    <color name="darkgrey">#000000</color>
 </resources>

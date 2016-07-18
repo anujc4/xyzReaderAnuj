@@ -20,6 +20,12 @@ public class DynamicHeightNetworkImageView extends NetworkImageView {
         super(context, attrs, defStyle);
     }
 
+//    @Override
+//    public void setScaleType(ScaleType scaleType) {
+//        super.setScaleType(scaleType);
+//     scaleType.equals(ScaleType.FIT_CENTER);
+//    }
+
     public void setAspectRatio(float aspectRatio) {
         mAspectRatio = aspectRatio;
         requestLayout();
