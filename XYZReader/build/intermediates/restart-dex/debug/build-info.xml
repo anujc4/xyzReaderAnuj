@@ -4,41 +4,55 @@
     api-level="24"
     density="560dpi"
     format="7"
-    timestamp="267778746742658"
+    timestamp="272681729606091"
     token="-880934157776845272" >
 
     <task
         name="javac"
-        duration="501" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="128" />
+        duration="0" />
     <task
         name="verifier"
-        duration="17" />
+        duration="0" />
 
     <artifact
         location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\res\resources-debug.ap_"
         type="RESOURCES" />
-    <artifact
-        location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-        type="DEX" />
 
-    <build timestamp="266910923182027" >
+    <build timestamp="269371368862775" >
         <artifact
             location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\outputs\apk\XYZReader-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="267778746742658" >
+    <build timestamp="272318252680007" >
         <artifact
-            location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\res\resources-debug.ap_"
-            type="RESOURCES" />
+            location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
         <artifact
             location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
             type="DEX" />
+    </build>
+    <build timestamp="272681729606091" >
+        <artifact
+            location="C:\Users\anuj\StudioProjects\xyzreaderAnuj\XYZReader\build\intermediates\res\resources-debug.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>

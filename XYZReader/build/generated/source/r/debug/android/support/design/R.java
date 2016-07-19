@@ -529,17 +529,17 @@ public final class R {
 		public static final int design_tab_scrollable_min_width = 0x7f07001a;
 		public static final int design_tab_text_size = 0x7f070075;
 		public static final int design_tab_text_size_2line = 0x7f070076;
-		public static final int disabled_alpha_material_dark = 0x7f070078;
-		public static final int disabled_alpha_material_light = 0x7f070079;
-		public static final int highlight_alpha_material_colored = 0x7f07007c;
-		public static final int highlight_alpha_material_dark = 0x7f07007d;
-		public static final int highlight_alpha_material_light = 0x7f07007e;
-		public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f07007f;
-		public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f070080;
-		public static final int item_touch_helper_swipe_escape_velocity = 0x7f070081;
-		public static final int notification_large_icon_height = 0x7f070082;
-		public static final int notification_large_icon_width = 0x7f070083;
-		public static final int notification_subtext_size = 0x7f070084;
+		public static final int disabled_alpha_material_dark = 0x7f070079;
+		public static final int disabled_alpha_material_light = 0x7f07007a;
+		public static final int highlight_alpha_material_colored = 0x7f07007d;
+		public static final int highlight_alpha_material_dark = 0x7f07007e;
+		public static final int highlight_alpha_material_light = 0x7f07007f;
+		public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f070080;
+		public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f070081;
+		public static final int item_touch_helper_swipe_escape_velocity = 0x7f070082;
+		public static final int notification_large_icon_height = 0x7f070083;
+		public static final int notification_large_icon_width = 0x7f070084;
+		public static final int notification_subtext_size = 0x7f070085;
 	}
 	public static final class drawable {
 		public static final int abc_ab_share_pack_mtrl_alpha = 0x7f020000;
@@ -846,9 +846,9 @@ public final class R {
 		public static final int abc_shareactionprovider_share_with = 0x7f060010;
 		public static final int abc_shareactionprovider_share_with_application = 0x7f060011;
 		public static final int abc_toolbar_collapse_description = 0x7f060012;
-		public static final int appbar_scrolling_view_behavior = 0x7f060024;
-		public static final int bottom_sheet_behavior = 0x7f060025;
-		public static final int character_counter_pattern = 0x7f060026;
+		public static final int appbar_scrolling_view_behavior = 0x7f060025;
+		public static final int bottom_sheet_behavior = 0x7f060026;
+		public static final int character_counter_pattern = 0x7f060027;
 		public static final int status_bar_notification_info_overflow = 0x7f060013;
 	}
 	public static final class style {

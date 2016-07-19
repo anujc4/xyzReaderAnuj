@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -46,7 +46,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         public void onReceive(Context context, Intent intent) {
             if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
                 mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
-                updateRefreshingUI();
+                //updateRefreshingUI();
             }
         }
     };
@@ -57,12 +57,12 @@ public class ArticleListActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_article_list);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        final View toolbarContainerView = findViewById(R.id.toolbar_container);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            toolbarContainerView.setBackgroundColor(getColor(R.color.theme_primary));
-        }
+//        final View toolbarContainerView = findViewById(R.id.toolbar_container);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            toolbarContainerView.setBackgroundColor(getColor(R.color.theme_primary));
+//        }
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        //mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
@@ -73,13 +73,21 @@ public class ArticleListActivity extends AppCompatActivity implements
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new LibsBuilder()
-                        //provide a style (optional) (LIGHT, DARK, LIGHT_DARK_TOOLBAR)
-                        .withActivityStyle(Libs.ActivityStyle.LIGHT)
-                        //start the activity
-                        .start(getApplication());
+
+                Snackbar.make(view, R.string.help, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.about, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                new LibsBuilder()
+                                        //provide a style (optional) (LIGHT, DARK, LIGHT_DARK_TOOLBAR)
+                                        .withActivityStyle(Libs.ActivityStyle.LIGHT)
+                                        //start the activity
+                                        .start(getApplication());
+                            }
+                        }).show();
             }
         });
+
 
         if (savedInstanceState == null) {
             refresh();
@@ -103,9 +111,9 @@ public class ArticleListActivity extends AppCompatActivity implements
         unregisterReceiver(mRefreshingReceiver);
     }
 
-    private void updateRefreshingUI() {
-        mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
-    }
+    //private void updateRefreshingUI() {
+    //    mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
+    //}
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
