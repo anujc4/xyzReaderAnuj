@@ -36,6 +36,7 @@ import com.mikepenz.aboutlibraries.LibsBuilder;
 public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
+    private Context context = this;
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -79,10 +80,8 @@ public class ArticleListActivity extends AppCompatActivity implements
                             @Override
                             public void onClick(View view) {
                                 new LibsBuilder()
-                                        //provide a style (optional) (LIGHT, DARK, LIGHT_DARK_TOOLBAR)
                                         .withActivityStyle(Libs.ActivityStyle.LIGHT)
-                                        //start the activity
-                                        .start(getApplication());
+                                        .start(context);
                             }
                         }).show();
             }
