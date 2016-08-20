@@ -1,5 +1,6 @@
 <com.example.xyzreader.ui.DrawInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
     android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -90,18 +91,22 @@
         </FrameLayout>
     </com.example.xyzreader.ui.ObservableScrollView>
 
-    <ImageButton android:id="@+id/share_fab"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="@dimen/fab_margin"
-        android:layout_marginRight="@dimen/fab_margin"
-        android:background="@drawable/add_fab_background"
-        android:contentDescription="@string/action_share"
-        android:elevation="@dimen/fab_elevation"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/action_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/theme_accent"
+        android:elevation="6dp"
+        android:scaleType="center"
         android:src="@drawable/ic_share"
-        android:stateListAnimator="@anim/fab_state_list_anim"
-
+        android:tint="@color/ltgray"
+        fab:backgroundTint="@color/theme_accent"
+        fab:fabSize="normal"
+        fab:layout_behavior="com.example.xyzreader.ui.fabScrollMonitor"
+        fab:rippleColor="@color/ltgray"
         />
 
 </com.example.xyzreader.ui.DrawInsetsFrameLayout>

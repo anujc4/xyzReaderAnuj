@@ -164,7 +164,7 @@ public class ArticleDetailActivity extends AppCompatActivity
             ArticleDetailFragment fragment = (ArticleDetailFragment) object;
             if (fragment != null) {
                 mSelectedItemUpButtonFloor = fragment.getUpButtonFloor();
-                updateUpButtonPosition();
+//                updateUpButtonPosition();
             }
         }
 

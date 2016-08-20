@@ -1,6 +1,5 @@
 package com.example.xyzreader.ui;
 
-import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Intent;
@@ -10,9 +9,8 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ShareCompat;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
 import android.text.format.DateUtils;
@@ -21,7 +19,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,8 +26,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
-
-import static com.example.xyzreader.R.id.share_fab;
 
 /**
  * A fragment representing a single Article detail screen. This fragment is
@@ -42,7 +37,7 @@ public class ArticleDetailFragment extends Fragment implements
     public static final String ARG_ITEM_ID = "item_id";
     private static final String TAG = "ArticleDetailFragment";
     private static final float PARALLAX_FACTOR = 1.25f;
-
+    FloatingActionButton fab;
     private Cursor mCursor;
     private long mItemId;
     private View mRootView;
@@ -50,7 +45,6 @@ public class ArticleDetailFragment extends Fragment implements
     private ObservableScrollView mScrollView;
     private DrawInsetsFrameLayout mDrawInsetsFrameLayout;
     private ColorDrawable mStatusBarColorDrawable;
-
     private int mTopInset;
     private View mPhotoContainerView;
     private ImageView mPhotoView;
@@ -144,24 +138,43 @@ public class ArticleDetailFragment extends Fragment implements
         mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
+//
+//        final ImageButton share = (ImageButton) mRootView.findViewById(share_fab);
+//        share.setOnClickListener(new View.OnClickListener() {
+//            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//            @Override
+//            public void onClick(View view) {
+//                share.setElevation(12);
+//                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
+//                        .setType("text/plain")
+//                        .setText("Some sample text")
+//                        .getIntent(), getString(R.string.action_share)));
+//                share.setElevation(2);
+//            }
+//        });
 
-        final ImageButton share = (ImageButton) mRootView.findViewById(share_fab);
-        share.setOnClickListener(new View.OnClickListener() {
-            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void onClick(View view) {
-                share.setElevation(12);
-                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
-                        .setType("text/plain")
-                        .setText("Some sample text")
-                        .getIntent(), getString(R.string.action_share)));
-                share.setElevation(2);
-            }
-        });
+
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
+//                        .setType("text/plain")
+//                        .setText("Some sample text")
+//                        .getIntent(), getString(R.string.action_share)));
+//
+//                Intent i = new Intent();
+//                i = Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity()));
+//
+//
+//            }
+//        });
+
+
 
 
         bindViews();
         updateStatusBar();
+        fab = (FloatingActionButton) mRootView.findViewById(R.id.action_share);
         return mRootView;
     }
 
@@ -196,6 +209,7 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            final String title = mCursor.getString(ArticleLoader.Query.TITLE);
             bylineView.setText(Html.fromHtml(
                     DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
@@ -204,6 +218,23 @@ public class ArticleDetailFragment extends Fragment implements
                             + " by <font color='#ffffff'>"
                             + mCursor.getString(ArticleLoader.Query.AUTHOR)
                             + "</font>"));
+            final String body = mCursor.getString(ArticleLoader.Query.BODY);
+
+
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                    sharingIntent.setType("text/plain");
+                    sharingIntent.putExtra(Intent.EXTRA_SUBJECT, title);
+                    sharingIntent.putExtra(Intent.EXTRA_TEXT, body);
+                    startActivity(sharingIntent);
+                }
+            });
+
+
+
+
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
